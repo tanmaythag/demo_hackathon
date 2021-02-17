@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+{% block content %}
+<form>
+<div class=" col-md-12 form-section">
+                        <div class="col-md-6 form-group">
+                            <label class="control-label">Report Type *</label>
+                            <select class="select-form-control classic1  form-control sty cl-form" name="complaint_type" title="Select Report Type" value=""  required="">
+                                    <option value="">Select Report Type </option>
+                                     <option value="1" title="static.Lost_Item ">Lost Item Report</option>
+                                            <option value="2" title="Found Item Report">Found Item Report</option>
+                                <option value="3" title="Abuse">Abuse</option>
+                                <option value="4" title="Violence">Home_violence</option>
+                                
+                                </select>
+                        </div>
+                          <div class="col-md-6 form-group">
+                            <label class="control-label">Police Station</label>
+                            <select class="classic1  form-control sty cl-form"  name="police_s" title="Select Police Station" >
+                                    <option value="">Select Police Station</option>
+                                         <option value="1">City Chowk </option>
+                                        <option value="2">Kranti Chowk </option>
+                                        <option value="3">Begumpura</option>
+                                        <option value="4">Vedantnagar </option>
+                                       <option value="5">Chavani</option>
+                                        <option value="6">Daulatabad</option>
+                                       <option value="7">Waluj</option>
+                                    <option value="8">MIDC Waluj </option>
+                                    <option value="9">Jinsi </option>
+                                    <option value="10">CIDCO</option>
+                                    <option value="11">Mukundwadi </option>
+                                <option value="12">M.I.D.C CIDCO</option>
+                                <option value="13">Harsul</option>
+                                <option value="14">Jawaharnagar</option>
+                                <option value="15">Osmanpura</option>
+                                <option value="16">Satara </option>
+                                <option value="17">Pundalik Nagar</option>
+                                                                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class=" control-label"><span>Article Type </span></label>
+
+                            <select id="privileges" onclick="craateUserJsObject.ShowPrivileges();" name="article_type" class="classic1  form-control sty cl-form"  value="">
+                                     <option value="" title="Select Article Type">Select Article Type</option>
+                                            <option value="Driving License" title="Driving License">Driving License</option>
+                                            <!--<option value="Passport">Driving License</option>-->
+                                            <option value="PAN Card" title="PAN Card">PAN Card</option>
+                                            <option value="Aadhar Card" title="Aadhar Card">Aadhar Card</option>
+                                            <option value="Voter ID Card" title="Voter ID Card">Voter ID Card</option>
+                                            <option value="Ration Card" title="Ration Card">Ration Card</option>
+                                            <option value="Educational Document" title="Educational Document">Educational Document</option>
+                                            <option value="Other Documents" title="Other document">Other document</option>
+                                             <option value="Mobile" title="Mobile">Mobile</option>
+                                             <option value="Other Electronic Device" title="Other Electronic Device">Other Electronic Device</option>
+                                            <!--<option value="Mobile">Mobile</option>-->
+                            </select>
+                        </div>
+                        
+                         <div class="col-md-6 form-group resources" style=" display: none;">
+                            <label class=" control-label">Mobile Number in use in case of Lost Mobile Handset*</label>
+                            <input class="form-control sty" id="mo" name="oldcontact"  type="number" title="Mobile Number in use in case of Lost Mobile Handset" value=""  maxlength="200">
+                        </div>
+                        
+                        
+                         <div class="col-md-6 form-group resources1" style=" display: none;">
+                            <label class=" control-label">IMEI No</label>
+                            <input class="form-control sty" id="imeino" name="imei_no"  type="number" title="IMEI No" value=""  maxlength="200">
+                        </div>
+                      
+                        
+                         <div class="col-md-6 form-group resources2">
+                            <label class=" control-label">Document ID No.</label>
+                            <input class="form-control sty"  name="doc_no"  type="text" title="Document ID No." value=""  maxlength="200">
+                        </div>
+                      
+                      
+                        <div class="col-md-6 form-group">
+                            <label class=" control-label"> Lost / Found Date &amp; Time</label>
+                            <input class="form-control sty" name="lfdate"  value=""  title=" Lost / Found Date &amp; Time" id="datetime" type="text">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class=" control-label">Place of Lost / Found and Other Details (If Any)</label>
+                            <input class="form-control sty" name="area"  type="text" title="Place of Lost / Found and Other Details (If Any)" value=""  maxlength="200" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9,.@: ]/,'')">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="control-label">Full Name</label>
+                            <input class="form-control sty" name="name" type="text" title="Full Name" value=""  maxlength="100" onkeyup="this.value=this.value.replace(/[^a-zA-Z ]/,'')">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class=" control-label">E-mail ID<span id="star"> * </span></label>
+                            <input class="form-control sty" name="email" type="email" title="E-mail ID" value="" maxlength="100" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9@. ]/,'')" required="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class=" control-label">Contact Number (for OTP)<span id="star"> * </span></label>
+                            <input class="form-control sty" name="contact" type="tel" title="Contact Number(for OTP)" value="" required="" maxlength="10" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class=" control-label">Address<span id="star"> * </span></label>
+                            <input class="form-control sty" name="address"  type="text" title="Address" value=""  maxlength="200" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9-, ]/,'')" required="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class=" control-label">Pin code</label>
+                            <input class="form-control sty" name="postal_code"  type="text" value=""  title="Pin code" minlength="6" maxlength="6" onkeyup="this.value=this.value.replace(/[^\d]/,'')"  >
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label class="control-label">Article Description<span id="star"> * </span> </label>
+                            <div class="" id="des">
+                            </div>
+                            <textarea class="form-control " id="exampleFormControlTextarea2" value=""  name="article_desc" type="text" title="Article Description" required="" maxlength="1000" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9,.@: ]/,'')"></textarea>
+                        </div>
+
+
+                        <div class="col-md-1">
+                            <input class="big-check" type="checkbox" name="" required="">
+                        </div>
+                        <div class="col-md-11">
+                            <p class="agree-check" title="I certify that the information provided by me in above form is accurate and correct as per best of my knowledge. I understand that withholding of information or giving false information is a criminal offense and may result in disciplinary legal action against me">
+                                I certify that the information provided by me in above form is accurate and correct as per best of my knowledge. I understand that withholding of information or giving false information is a criminal offense and may result in disciplinary legal action against me
+                            </p>
+                        </div>
+                        <!--<div class="form-group cpt m-b-30 col-md-2 col-sm-3 col-xs-6">
+                            <label for="subject">Captcha *</label> <img src="https://punepolice.gov.in/captcha/default?j1yPgt3r"  id="mycaptcha" style="width:90px !important;">&nbsp;<img src="img/refresh.png" data-value="https://punepolice.gov.in/captcha/default?hWkjs0Oj" id="captcha_refresh" onclick="return refreshcaptcha();" style="cursor:pointer;width:30px;height:34px;">
+                        </div>
+                        -->
+                        <div class="form-group m-b-30 mt-25 col-md-4 col-sm-4 col-xs-6">
+                            <input class="form-control styCp" name="captcha" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="5" placeholder="Enter Captcha Here *" type="text" title="Enter Captcha Here" autocomplete="off" required="">
+                            <span class="validity"></span>
+                        </div>
+                     
+                            <button class="cancel-btn  btn-def col-md-3 col-sm-2 col-xs-5"  type="reset" title="Reset">Reset</button>
+    
+                            <button class="submit-btn  btn-def-op col-md-3 col-sm-2 col-xs-5" title="Submit" type="Submit">Submit</button>
+                        
+                    </div>
+                </form>
+    {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
